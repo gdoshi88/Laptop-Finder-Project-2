@@ -27,7 +27,7 @@ Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
 bestbuy_table = Base.classes.bestbuy_laptops
-frys_table = Base.classes.  # insert frys table name here
+frys_table = Base.classes.frys_laptops
 
 
 @app.route("/")
