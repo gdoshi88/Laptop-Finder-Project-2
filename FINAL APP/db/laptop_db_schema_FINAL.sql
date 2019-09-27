@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS bestbuy_laptops;
 CREATE Table frys_laptops (
 	brand VARCHAR,
 	model VARCHAR(50),
-	screenSize FLOAT,
+	screensize FLOAT,
 	cpu VARCHAR,
 	ram INT,
 	hd VARCHAR,
@@ -28,7 +28,7 @@ CREATE Table frys_laptops (
 CREATE Table bestbuy_laptops (
 	brand VARCHAR,
 	model VARCHAR(50),
-	screenSize FLOAT,
+	screensize FLOAT,
 	cpu VARCHAR,
 	ram INT,
 	hd VARCHAR,
