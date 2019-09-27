@@ -54,3 +54,7 @@ body {
   height: 400px;
   margin: auto;
 }
+
+#map-example-container {
+  height: 450px;
+}
