@@ -1,6 +1,6 @@
 # Laptop-Finder-Project-2
 
-Laptop Finder Application by Gautam Doshi, Rika Fukamachi, Ed Dombrowski, Chinedu Nwaka
+Laptop Finder Application by Gautam Doshi, Rika Fukamachi, Ed Dombrowski, Chinedu Nwaka, Barani Htut
 
 Heroku App Link:
 
