@@ -15,15 +15,15 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/leaflet/1/leaflet.css" />
 <script src="https://cdn.jsdelivr.net/leaflet/1/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.4"></script>
-    <link rel="stylesheet" href="../style.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="../favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../favicon_io/favicon-16x16.png">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand title-font" href="../homepage/index.html">Laptop Finder</a>
+      <a class="navbar-brand title-font" href="index.html">Laptop Finder</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -38,18 +38,11 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link nav-font" href="../homepage/index.html"
+            <a class="nav-link nav-font" href="index.html"
               >Home</a
             >
           </li>
-          <!--<li class="nav-item">
-            <a class="nav-link" href="../data page/index.html">Data Table</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../comparisons page/index.html"
-              >Comparison Charts</a
-            >
-          </li>-->
+          
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle nav-font"
@@ -61,19 +54,17 @@
             Discover
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item nav-font" href="../datatable/index.html"
+              <a class="dropdown-item nav-font" href="data.html"
                 >Data Table</a
               >
-              <a class="dropdown-item nav-font" href="../comparisoncharts/index.html"
+              <a class="dropdown-item nav-font" href="chart.html"
                 >Comparison Charts</a
               >
-              <!--<a class="dropdown-item" href="../visualization-page-4/index.html"
-                >City Latitude vs. Wind Speed</a
-                >-->
+             
             </div>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="../map/index.html"
+            <a class="nav-link" href="map.html"
               >Location Finder<span class="sr-only">(current)</span></a
             >
           </li>
@@ -86,29 +77,13 @@
     
 
     <div class="media">
-      <!--<img
-        src="../Resources/assets/images/Fig1.png"
-        class="mr-3"
-        alt="Data Table"
-      />
-      <div class="media-body">
-        <h5 class="mt-0">City Latitude vs. Max Temperature</h5>
-        In this visualization, which compares the latitude of the cities and the
-        maximum temperatures experienced by those cities, we can observe that
-        the closer the city is to the equator(0 degrees latitude) the higher the
-        temperature spikes. Something else that can be noticed is that during
-        the earlier months of the year, the southern hemisphere tends to be
-        warmer than the northern hemisphere. This could be due to the axis tilt
-        of the Earth. Furthermore, there are a few outliers whose temperatures
-        stand out. An assumption can be made that these cities are outliers due
-        to their geographical positioning on the planet.
-      </div>-->
+   
     </div>
     <footer class="page-footer font-small blue">
       <div class="footer-copyright text-center py-3">© 2019 Copyright:
       <a href="https://github.com/gdoshi88">github.com/gdoshi88</a>
       </div>
       </footer>
-      <script type="text/javascript" src="map.js"></script>
+      <script src="{{ url_for('static', filename='js/map.js') }}"></script>
   </body>
 </html>
