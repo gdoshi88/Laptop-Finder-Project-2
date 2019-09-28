@@ -4,6 +4,9 @@
 DROP TABLE IF EXISTS frys_laptops;
 DROP TABLE IF EXISTS bestbuy_laptops;
 
+DROP TABLE IF EXISTS bestbuy_locations;
+DROP TABLE IF EXISTS frys_locations;
+DROP TABLE IF EXISTS both_locations;
 
 /***********************************************************/
 --CREATE TABLE FOR FRYS LAPTOPS
@@ -41,8 +44,56 @@ CREATE Table bestbuy_laptops (
 );
 
 
+
+/***********************************************************/
+--CREATE TABLE FOR FRYS LOCATIONS:
+/***********************************************************/
+CREATE Table frys_locations (
+	index INT PRIMARY KEY,
+	store VARCHAR(10),
+	address VARCHAR,
+	city VARCHAR,
+	region VARCHAR,
+	postalcode VARCHAR,
+	lat VARCHAR,
+	lng VARCHAR
+);
+
+
+/***********************************************************/
+--CREATE TABLE FOR BEST BUY LOCATIONS:
+/***********************************************************/
+CREATE Table bestbuy_locations (
+	index INT PRIMARY KEY,
+	store VARCHAR(10),
+	address VARCHAR,
+	city VARCHAR,
+	region VARCHAR,
+	postalcode VARCHAR,
+	lat VARCHAR,
+	lng VARCHAR
+);
+
+
+/***********************************************************/
+--CREATE TABLE FOR BOTH LOCATIONS:
+/***********************************************************/
+CREATE Table both_locations (
+	index INT PRIMARY KEY,
+	store VARCHAR(10),
+	address VARCHAR,
+	city VARCHAR,
+	region VARCHAR,
+	postalcode VARCHAR,
+	lat VARCHAR,
+	lng VARCHAR
+);
+
 /***********************************************************/
 -- VALIDATE TABLE REPOPULATION
 /***********************************************************/
 SELECT * FROM frys_laptops;
 SELECT * FROM bestbuy_laptops;
+SELECT * FROM frys_locations;
+SELECT * FROM bestbuy_locations;
+SELECT * FROM both_locations;
