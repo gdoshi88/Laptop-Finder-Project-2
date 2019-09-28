@@ -29,8 +29,9 @@ Base = automap_base()
 Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
-laptop_data = Base.classes.bestbuy_laptops
-# Store_data = Base.classes.  # name of store data table
+# laptops = Base.classes.both_laptops
+locations = Base.classes.both_locations
+
 
 session = Session(db.engine)
 
@@ -41,22 +42,41 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/homepage/data.html")
-def data():
-    #     # placeholder text till the table is finished
-    return render_template("data.html")
+# @app.route("/homepage/data.html")
+# def data():
+#     stmt_laptops1 = db.session.query(laptops).statement
+#     df_laptops1 = pd.read_sql_query(stmt_map, db.session.bind)
+#     data_laptops1 = jsonify(df_map.to_json())
+
+#     # return jsonify(list(df_map.columns)[2:])
+#     # placeholder text till the map is finished
+#     return render_template("data.html", data=data_laptops1)
+#     # return render_template("map.html")
+#     #     # placeholder text till the table is finished
 
 
-@app.route("/homepage/chart.html")
-def chart():
-    # placeholder text till the table is finished
-    return render_template("chart.html")
+# @app.route("/homepage/chart.html")
+# def chart():
+#     stmt_laptops2 = db.session.query(laptops).statement
+#     df_laptops2 = pd.read_sql_query(stmt_map, db.session.bind)
+#     data_laptops2 = jsonify(df_map.to_json())
+
+#     # return jsonify(list(df_map.columns)[2:])
+#     # placeholder text till the map is finished
+#     return render_template("chart.html", data=data_laptops2)
+#     # placeholder text till the table is finished
 
 
 @app.route("/homepage/map.html")
 def map():
+    stmt_map = db.session.query(locations).statement
+    df_map = pd.read_sql_query(stmt_map, db.session.bind)
+    data_map = df_map.to_json()
+    # return data_map
+    # return jsonify(list(df_map.columns)[2:])
     # placeholder text till the map is finished
-    return render_template("map.html")
+    return render_template("map.html", data=data_map)
+    # return render_template("map.html")
 
 
 if __name__ == "__main__":
