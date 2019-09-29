@@ -230,5 +230,9 @@
     <a href="https://github.com/gdoshi88">github.com/gdoshi88 and rfukamachi</a>
     </div>
     </footer>
+    <script src="{{ url_for('static', filename='js/data.js') }}"></script>
+      <script type="text/javascript">
+        var username = myFunc({{ data|tojson }})
+    </script>
   </body>
 </html>

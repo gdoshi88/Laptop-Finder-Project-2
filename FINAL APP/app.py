@@ -29,7 +29,7 @@ Base = automap_base()
 Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
-# laptops = Base.classes.both_laptops
+laptops = Base.classes.both_laptops
 locations = Base.classes.both_locations
 
 
@@ -42,28 +42,28 @@ def index():
     return render_template("index.html")
 
 
-# @app.route("/homepage/data.html")
-# def data():
-#     stmt_laptops1 = db.session.query(laptops).statement
-#     df_laptops1 = pd.read_sql_query(stmt_map, db.session.bind)
-#     data_laptops1 = jsonify(df_map.to_json())
-
+@app.route("/homepage/data.html")
+def data():
+    stmt_laptops1 = db.session.query(laptops).statement
+    df_laptops1 = pd.read_sql_query(stmt_laptops1, db.session.bind)
+    data_laptops1 = df_laptops1.to_json()
+    # print(data_laptops1)
 #     # return jsonify(list(df_map.columns)[2:])
 #     # placeholder text till the map is finished
-#     return render_template("data.html", data=data_laptops1)
+    return render_template("data.html", data=data_laptops1)
 #     # return render_template("map.html")
 #     #     # placeholder text till the table is finished
 
 
-# @app.route("/homepage/chart.html")
-# def chart():
-#     stmt_laptops2 = db.session.query(laptops).statement
-#     df_laptops2 = pd.read_sql_query(stmt_map, db.session.bind)
-#     data_laptops2 = jsonify(df_map.to_json())
-
+@app.route("/homepage/chart.html")
+def chart():
+    stmt_laptops2 = db.session.query(laptops).statement
+    df_laptops2 = pd.read_sql_query(stmt_laptops2, db.session.bind)
+    data_laptops2 = df_laptops2.to_json()
+    # print(data_laptops2)
 #     # return jsonify(list(df_map.columns)[2:])
 #     # placeholder text till the map is finished
-#     return render_template("chart.html", data=data_laptops2)
+    return render_template("chart.html", data=data_laptops2)
 #     # placeholder text till the table is finished
 
 
