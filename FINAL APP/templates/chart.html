@@ -103,3 +103,8 @@
               </div>
               </footer>
     </body>
+    <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
+      <script type="text/javascript">
+        var username = myFunc({{ data|tojson }})
+    </script>
+  </html>
