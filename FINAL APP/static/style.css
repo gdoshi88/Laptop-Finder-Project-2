@@ -58,3 +58,9 @@ body {
 #map-example-container {
   height: 450px;
 }
+
+
+#filter-btn {
+  color: black;
+  background-color: darkgray;
+}
