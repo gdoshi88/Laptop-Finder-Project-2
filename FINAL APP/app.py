@@ -30,7 +30,8 @@ Base.prepare(db.engine, reflect=True)
 
 # Save references to each table
 laptops = Base.classes.both_laptops
-locations = Base.classes.both_locations
+locations_bb = Base.classes.bestbuy_locations
+locations_frys = Base.classes.frys_locations
 
 
 session = Session(db.engine)
@@ -47,7 +48,7 @@ def data():
     stmt_laptops1 = db.session.query(laptops).statement
     df_laptops1 = pd.read_sql_query(stmt_laptops1, db.session.bind)
     data_laptops1 = df_laptops1.to_json()
-
+    # print(data_laptops1)
 #     # return jsonify(list(df_map.columns)[2:])
 #     # placeholder text till the map is finished
     return render_template("data.html", data=data_laptops1)
@@ -60,7 +61,7 @@ def chart():
     stmt_laptops2 = db.session.query(laptops).statement
     df_laptops2 = pd.read_sql_query(stmt_laptops2, db.session.bind)
     data_laptops2 = df_laptops2.to_json()
-
+    # print(data_laptops2)
 #     # return jsonify(list(df_map.columns)[2:])
 #     # placeholder text till the map is finished
     return render_template("chart.html", data=data_laptops2)
@@ -69,14 +70,45 @@ def chart():
 
 @app.route("/homepage/map.html")
 def map():
-    stmt_map = db.session.query(locations).statement
-    df_map = pd.read_sql_query(stmt_map, db.session.bind)
-    data_map = df_map.to_json()
-    # return data_map
-    # return jsonify(list(df_map.columns)[2:])
-    # placeholder text till the map is finished
-    return render_template("map.html", data=data_map)
-    # return render_template("map.html")
+    sel_bb = [
+        locations_bb.lat,
+        locations_bb.lng,
+        locations_bb.store,
+        locations_bb.address
+    ]
+
+    stmt_map_bb = db.session.query(*sel_bb).all()
+
+    sel_frys = [
+        locations_frys.lat,
+        locations_frys.lng,
+        locations_frys.store,
+        locations_frys.address
+    ]
+
+    stmt_map_frys = db.session.query(*sel_frys).all()
+
+    bblist = []
+    for x in stmt_map_bb:
+        bbcoords = {}
+        bbcoords['lat'] = x[0]
+        bbcoords['lng'] = x[1]
+        bbcoords['store'] = x[2]
+        bbcoords['address'] = x[3]
+
+        bblist.append(bbcoords)
+
+    fryslist = []
+    for x in stmt_map_frys:
+        fryscoords = {}
+        fryscoords['lat'] = x[0]
+        fryscoords['lng'] = x[1]
+        fryscoords['store'] = x[2]
+        fryscoords['address'] = x[3]
+
+        fryslist.append(fryscoords)
+
+    return render_template("map.html", bestbuy=bblist, frys=fryslist)
 
 
 if __name__ == "__main__":
