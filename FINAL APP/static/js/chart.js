@@ -148,9 +148,10 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
                     .attr('class', 'd3-tip')
                     .direction('w')
                     .html(function(d) {                  
-                        return (`<h5>${d.store}<br>
+                        return (`<h6>${d.store}<br>
+                                 ${d.brand}<br>${d.cpu}<br>
                                  ${xlabel} ${d[chosenXAxis]}${xPostfix}<br>
-                                 ${ylabel} ${d[chosenYAxis]}</h5>`);
+                                 ${ylabel} ${d[chosenYAxis]}</h6>`);
                     });
 
     // create the tooltip in chartGroup:
