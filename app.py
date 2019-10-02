@@ -16,7 +16,7 @@ app = Flask(__name__)
 
 # Database Setup
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL', '')
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgres://postgres:monicapatel4020@localhost:5432/laptop_db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # os.environ.get('DATABASE_URL', '')
@@ -58,7 +58,7 @@ def data():
         laptops.hd,
         laptops.ram,
         laptops.screensize,
-        # laptops.title,
+        laptops.title,
         laptops.upc,
         laptops.link
     ]
@@ -76,9 +76,9 @@ def data():
         laptopObject["hd"] = x[5]
         laptopObject["ram"] = x[6]
         laptopObject["screensize"] = x[7]
-        # laptopObject["title"] = x[8]
-        laptopObject["upc"] = x[8]
-        laptopObject["link"] = x[9]
+        laptopObject["title"] = x[8]
+        laptopObject["upc"] = x[9]
+        laptopObject["link"] = x[10]
 
         laptopList.append(laptopObject)
 
@@ -99,7 +99,7 @@ def data_api():
         laptops.hd,
         laptops.ram,
         laptops.screensize,
-        # laptops.title,
+        laptops.title,
         laptops.upc,
         laptops.link
     ]
@@ -118,9 +118,9 @@ def data_api():
         laptopObject["hd"] = x[5]
         laptopObject["ram"] = x[6]
         laptopObject["screensize"] = x[7]
-        # laptopObject["title"] = x[8]
-        laptopObject["upc"] = x[8]
-        laptopObject["link"] = x[9]
+        laptopObject["title"] = x[8]
+        laptopObject["upc"] = x[9]
+        laptopObject["link"] = x[10]
 
         laptopList.append(laptopObject)
 
