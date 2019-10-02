@@ -177,7 +177,7 @@
     center: [39.8283, -98.5795],
     zoom: 13,
     scrollWheelZoom: false,
-    zoomControl: true,
+    zoomControl: true
     // layers: [overlayMaps]
   });
 
@@ -190,16 +190,31 @@
   //   new L.marker(marker).addTo(map);
   // });
 
+  var bestbuylayer = []
 
   output.forEach((obj) => {
     // console.log('Best Buy Object', obj);
-    L.marker([obj.lat, obj.lng], {icon: yellowIcon}).addTo(map).bindPopup(`${obj.store}: ${obj.address}`);
+    var markersbb = L.marker([obj.lat, obj.lng], {icon: yellowIcon}).bindPopup(`${obj.store}: ${obj.address}`);
+    bestbuylayer.push(markersbb);
   });
 
+
+    var fryslayer = []
   output2.forEach((obj) => {
     // console.log('Best Buy Object', obj);
-    L.marker([obj.lat, obj.lng], {icon: redIcon}).addTo(map).bindPopup(`${obj.store}: ${obj.address}`);
+    var markersfrys = L.marker([obj.lat, obj.lng], {icon: redIcon}).addTo(map).bindPopup(`${obj.store}: ${obj.address}`);
+    fryslayer.push(markersfrys);
   });
+
+  var markersbblayer = L.layerGroup(bestbuylayer);
+  var markersfryslayer = L.layerGroup(fryslayer);
+
+  var overlayMapsBB = {
+    "Best Buy": markersbblayer,
+    "Fry's Electronics": markersfryslayer
+    };
+  L.control.layers(overlayMapsBB).addTo(map);
+
   // for (var i=0; i<output.length; i++) {
            
   //          var lat = output[i][0];
