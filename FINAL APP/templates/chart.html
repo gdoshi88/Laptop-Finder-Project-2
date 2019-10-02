@@ -86,8 +86,8 @@
                                       </div>
                                       <div class="content">
                                         <div class="row">
-                                               <div class="col-xs-12 col-sm-12 col-md-6">
-                                                  <a href="../comparisoncharts/index.html"><img class="img-fluid" src="../Resources/assets/images/Fig2.png" alt="Comparison Charts" height="500" width="500"></a>
+                                               <div id="thischart" class="col-xs-12 col-sm-12 col-md-6">
+                                                  <!-- <a href="../comparisoncharts/index.html"><img class="img-fluid" src="../Resources/assets/images/Fig2.png" alt="Comparison Charts" height="500" width="500"></a> -->
                                                </div> 
                                           </div>
                                       </div>
@@ -102,8 +102,17 @@
               <a href="https://github.com/gdoshi88">github.com/gdoshi88</a>
               </div>
               </footer>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+              <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.9.1/d3-tip.js"></script>
               <script src="{{ url_for('static', filename='js/chart.js') }}"></script>
-      <script type="text/javascript">
+      <!-- <script type="text/javascript">
         var username = myFunc({{ data|tojson }})
-    </script>
+    </script> -->
+​
     </body>
+Collapse
+
+
+
+
+</html>
