@@ -125,30 +125,32 @@ function renderYtexts(textGroup, newYScale, chosenYAxis) {
 function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
     let xlabel = 'Screensize';
     let ylabel = 'Price';
-    // let xPostfix = '%';
-    // let yPostfix = '%';
+    let xPostfix = 'inches';
 
     switch(chosenXAxis) {
-        case 'hd'      : xlabel = 'HD:'; break;
+        case 'hd'           : xlabel = 'HD:'; break;
         case 'ram'          : xlabel = 'RAM:'; break;
-        case 'screensize'       : xlabel = 'Screensize:'; break;
+        case 'screensize'   : xlabel = 'Screensize:'; break;
     }
 
     switch(chosenYAxis) {
-        case 'price'      : ylabel = 'Price:'; break;
-
+        case 'price'      : ylabel = 'Price: $'; break;
     }
 
-
+    switch(chosenXAxis) {
+        case 'hd'           : xPostfix = 'GB'; break;
+        case 'ram'          : xPostfix = 'GB'; break;
+        case 'screensize'   : xPostfix = 'inches'; break;
+    }
     
     // initialize toolTip:
     let toolTip = d3.tip()
                     .attr('class', 'd3-tip')
                     .direction('w')
                     .html(function(d) {                  
-                        return (`<strong>${d.store}</strong><br>
-                                 ${xlabel} ${d[chosenXAxis]}<br>
-                                 ${ylabel} ${d[chosenYAxis]}`);
+                        return (`<h5>${d.store}<br>
+                                 ${xlabel} ${d[chosenXAxis]}${xPostfix}<br>
+                                 ${ylabel} ${d[chosenYAxis]}</h5>`);
                     });
 
     // create the tooltip in chartGroup:
@@ -156,12 +158,10 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
     // create mouseover and mouseout event listeners to display tooltip:
     circlesGroup.on('mouseover', toolTip.show)
-                // .on('mouseover',Â ()Â =>Â {
-                //     toolTip.show()
-                //     d3.select(this).style('stroke',Â 'red')
-                // })
-                // .on('mouseout', toolTip.hide);
 
+    circlesGroup.on('mouseout', toolTip.hide)
+
+                
     return circlesGroup;
 }
 
