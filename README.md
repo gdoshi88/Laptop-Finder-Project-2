@@ -3,6 +3,8 @@
 Laptop Finder Application by Gautam Doshi, Rika Fukamachi, Ed Dombrowski, Chinedu Nwaka, Barani Htut
 
 Heroku App Link: https://laptopfinder.herokuapp.com/homepage/index.html
+
+
 App Progress Report/Planning: https://docs.google.com/spreadsheets/d/1AROjn5OdHprPXfRzYyD39b3hUbbwlT_LEQxukN3e3yY/edit?usp=sharing
 
 Background:
