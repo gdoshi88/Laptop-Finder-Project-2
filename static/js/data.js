@@ -5,7 +5,7 @@ function init() {
     d3.json("/api/data").then(function(response) {
         $('#laptop-table').DataTable({
             data: response,
-            scrollY: 500,
+            // scrollY: 500,
             columns: [
                 {data: 'store'},
                 {data: 'price',
@@ -17,7 +17,7 @@ function init() {
                 {data: 'hd'},
                 {data: 'ram'},
                 {data: 'screensize'},
-                {data: 'title'},
+            //     // {data: 'title'},
                 {data: 'upc'},
                 {data: 'link',
                  searchable: false,
