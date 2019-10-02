@@ -43,17 +43,89 @@ def index():
     return render_template("index.html")
 
 
+##################################################
+# Data Table Page:
+##################################################
 @app.route("/homepage/data.html")
 def data():
-    stmt_laptops1 = db.session.query(laptops).statement
-    df_laptops1 = pd.read_sql_query(stmt_laptops1, db.session.bind)
-    data_laptops1 = df_laptops1.to_json()
-    # print(data_laptops1)
-#     # return jsonify(list(df_map.columns)[2:])
-#     # placeholder text till the map is finished
-    return render_template("data.html", data=data_laptops1)
-#     # return render_template("map.html")
-#     #     # placeholder text till the table is finished
+
+    sel_lapatops = [
+        laptops.store,
+        laptops.price,
+        laptops.brand,
+        laptops.model,
+        laptops.cpu,
+        laptops.hd,
+        laptops.ram,
+        laptops.screensize,
+        laptops.title,
+        laptops.upc,
+        laptops.link
+    ]
+    
+    results = db.session.query(*sel_lapatops).all()
+    
+    laptopList = []
+    for x in results:
+        laptopObject = {}
+        laptopObject["store"] = x[0]
+        laptopObject["price"] = x[1] 
+        laptopObject["brand"] = x[2] 
+        laptopObject["model"] = x[3] 
+        laptopObject["cpu"] = x[4] 
+        laptopObject["hd"] = x[5] 
+        laptopObject["ram"] = x[6]
+        laptopObject["screensize"] = x[7] 
+        laptopObject["title"] = x[8] 
+        laptopObject["upc"] = x[9] 
+        laptopObject["link"] = x[10] 
+
+        laptopList.append(laptopObject)
+
+    return render_template("data.html", data=laptopList)
+
+##################################################
+# For the data.js to pull data:
+##################################################
+@app.route("/api/data")
+def data_api():
+
+    sel_lapatops = [
+        laptops.store,
+        laptops.price,
+        laptops.brand,
+        laptops.model,
+        laptops.cpu,
+        laptops.hd,
+        laptops.ram,
+        laptops.screensize,
+        laptops.title,
+        laptops.upc,
+        laptops.link
+    ]
+    
+    results = db.session.query(*sel_lapatops).all()
+
+    laptopList = []
+    
+    for x in results:
+        laptopObject = {}
+        laptopObject["store"] = x[0]
+        laptopObject["price"] = x[1] 
+        laptopObject["brand"] = x[2] 
+        laptopObject["model"] = x[3] 
+        laptopObject["cpu"] = x[4] 
+        laptopObject["hd"] = x[5] 
+        laptopObject["ram"] = x[6]
+        laptopObject["screensize"] = x[7] 
+        laptopObject["title"] = x[8] 
+        laptopObject["upc"] = x[9] 
+        laptopObject["link"] = x[10] 
+
+        laptopList.append(laptopObject)
+
+    return jsonify(laptopList)
+
 
 
 @app.route("/homepage/chart.html")
