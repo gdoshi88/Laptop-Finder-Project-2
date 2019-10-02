@@ -58,7 +58,7 @@ def data():
         laptops.hd,
         laptops.ram,
         laptops.screensize,
-        laptops.title,
+        # laptops.title,
         laptops.upc,
         laptops.link
     ]
@@ -76,9 +76,9 @@ def data():
         laptopObject["hd"] = x[5]
         laptopObject["ram"] = x[6]
         laptopObject["screensize"] = x[7]
-        laptopObject["title"] = x[8]
-        laptopObject["upc"] = x[9]
-        laptopObject["link"] = x[10]
+        # laptopObject["title"] = x[8]
+        laptopObject["upc"] = x[8]
+        laptopObject["link"] = x[9]
 
         laptopList.append(laptopObject)
 
@@ -99,7 +99,7 @@ def data_api():
         laptops.hd,
         laptops.ram,
         laptops.screensize,
-        laptops.title,
+        # laptops.title,
         laptops.upc,
         laptops.link
     ]
@@ -118,9 +118,9 @@ def data_api():
         laptopObject["hd"] = x[5]
         laptopObject["ram"] = x[6]
         laptopObject["screensize"] = x[7]
-        laptopObject["title"] = x[8]
-        laptopObject["upc"] = x[9]
-        laptopObject["link"] = x[10]
+        # laptopObject["title"] = x[8]
+        laptopObject["upc"] = x[8]
+        laptopObject["link"] = x[9]
 
         laptopList.append(laptopObject)
 
