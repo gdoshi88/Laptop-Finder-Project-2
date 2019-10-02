@@ -3,6 +3,7 @@
 /***********************************************************/
 DROP TABLE IF EXISTS frys_laptops;
 DROP TABLE IF EXISTS bestbuy_laptops;
+DROP TABLE IF EXISTS both_laptops;
 
 DROP TABLE IF EXISTS bestbuy_locations;
 DROP TABLE IF EXISTS frys_locations;
@@ -14,7 +15,7 @@ DROP TABLE IF EXISTS both_locations;
 CREATE Table frys_laptops (
 	brand VARCHAR,
 	model VARCHAR(50),
-	screenSize FLOAT,
+	screensize FLOAT,
 	cpu VARCHAR,
 	ram INT,
 	hd VARCHAR,
@@ -31,7 +32,7 @@ CREATE Table frys_laptops (
 CREATE Table bestbuy_laptops (
 	brand VARCHAR,
 	model VARCHAR(50),
-	screenSize FLOAT,
+	screensize FLOAT,
 	cpu VARCHAR,
 	ram INT,
 	hd VARCHAR,
@@ -42,6 +43,29 @@ CREATE Table bestbuy_laptops (
 	title VARCHAR,
 	lastUpdated DATE
 );
+
+/***********************************************************/
+--CREATE TABLE FOR BOTH LAPTOPS
+/***********************************************************/
+CREATE Table both_laptops (
+	brand VARCHAR,
+	model VARCHAR(50),
+	screensize FLOAT,
+	cpu VARCHAR,
+	ram INT,
+	hd VARCHAR,
+	upc INT PRIMARY KEY, 
+	price FLOAT,
+	link VARCHAR,
+	title VARCHAR,
+	lastUpdated DATE,
+	store VARCHAR
+);
+
+
+
+/***********************************************************/
+/***********************************************************/
 
 
 
@@ -94,6 +118,7 @@ CREATE Table both_locations (
 /***********************************************************/
 SELECT * FROM frys_laptops;
 SELECT * FROM bestbuy_laptops;
+SELECT * FROM both_laptops;
 SELECT * FROM frys_locations;
 SELECT * FROM bestbuy_locations;
 SELECT * FROM both_locations;
